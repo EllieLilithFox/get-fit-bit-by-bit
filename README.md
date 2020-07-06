@@ -10,15 +10,15 @@
 
 ## Specifications
 
-1. **Behavior:** Program will create two classes, one for aerobic exercises and one for strength training
+1. **Behavior:** Program will create an exercise class
     * **Input Example:**
-    * **Output Example:** Aerobic { name: walking, time: 12:00, distance: .6, date: Date.now() } Strength { name: pushups, sets: 2, reps: 10, date: Date.now() }
+    * **Output Example:** Exercise { name: walking, time: 12:00, distance: .6, date: Date.now() } 
 
 2. **Behavior:** Program will create local array variable for storing new class instances
     * **Input Example:**
     * **Output Example:** exercises = []
 
-3. **Behavior:** Program will calculate calory burn based on exercise type
+3. **Behavior:** Program will calculate calorie burn based on exercise type
     * **Input Example:** walking
     * **Output Example:** 120 calories
 

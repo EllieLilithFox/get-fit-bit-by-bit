@@ -1,8 +1,8 @@
 import { Person } from "../src/person-class.js";
 
-describe('create Person object', () => {
+describe('create Person class instance', () => {
 
-  test('should create Person object', () => {
+  test('should create Person class instance', () => {
     const newPerson = new Person("Sue", "female", 33, 65, 140);
     
     expect(newPerson).toMatchObject({

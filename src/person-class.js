@@ -4,6 +4,6 @@ export class Person {
     this.gender = gender;
     this.age = age;
     this.height = height;
-    this.weight = 0;
+    this.weight = weight;
   }
 }
