@@ -14,3 +14,13 @@ import $ from "jquery";
 $(document).ready(function() {
 
 });
+$("input[name$='bn']").click(function(event){
+    var radio_value = $(this).val();
+    if(radio_value=='1') {
+      $("#multibn").show("slow");
+    }
+    else if(radio_value=='2') {
+      $("#multibn").hide("slow");
+    }
+    })
+    $('[name="bn"]:checked').trigger('click');
