@@ -1,5 +1,5 @@
 {
-  "name": "blank",
+  "name": "get-fit-bit-by-bit",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -11,7 +11,7 @@
     "debug": "node --inspect node_modules/.bin/jest --runInBand"
   },
   "keywords": [],
-  "author": "Deryck Jackson",
+  "author": "Ian Scott, Evgeniya Chernaya, Spencer Moody, Deryck Jackson",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.6.4",
