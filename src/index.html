@@ -105,79 +105,61 @@
     <!-- ABOUT -->
     <section class="about section" id="about">
       <div class="container">
-        <!-- <div class="row">
-          <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12"> -->
-            <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">Hello, <span class="name"></span>enter your exercises below!</h2>
-            <hr>
+        <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">Hello, <span class="name"></span>enter your exercises below!</h2>
+        <hr>
+        <br>
+        <div class="radio" data-aos="fade-up" data-aos-delay="800">
+          <label>
+            <input type="radio" name="exercise-type" value="aerobic" checked>
+            Aerobic
+          </label>
+          <label>
+            <input type="radio" name="exercise-type" value="muscle" checked>
+            Strength
+          </label>
+        </div>
+
+        <div class="form-group" id="strength-exercise-divider" data-aos="fade-up" data-aos-delay="800">
+          <form id="strength-exercise-form">
+            <select class="form-control" id="strength-type">
+              <option>Push-ups</option>
+              <option>Sit-ups</option>
+              <option>Pull-ups</option>
+              <option>Squats</option>
+            </select>
+            <input class="form-control" placeholder="Reps" id="reps" type="number" required>
+            <input class="form-control" placeholder="Sets" id="sets" type="number" required>
+            <div class="form-group">
+              <label for="strength-exercise-date">Date of Exercise</label>
+              <input id="strength-exercise-date" class="form-control" type="date">
+            </div>
             <br>
-            <div class="radio">
-              <label>
-                <input type="radio" name="exercise-type" value="aerobic" checked>
-                Aerobic
-              </label>
-              <label>
-                <input type="radio" name="exercise-type" value="muscle" checked>
-                Strength
-              </label>
-            </div>
+            <button id ="strength-button" class="btn btn-info btn-lg">Submit!</button>
+          </form>
+        </div>
 
-            <div class="form-group" id="strength-exercise-divider">
-              <form id="strength-exercise-form">
-                <select class="form-control" id="strength-type">
-                  <option>Push-ups</option>
-                  <option>Sit-ups</option>
-                  <option>Pull-ups</option>
-                  <option>Squats</option>
-                </select>
-                <input class="form-control" placeholder="Reps" id="reps" type="number" required>
-                <input class="form-control" placeholder="Sets" id="sets" type="number" required>
-                <div class="form-group">
-                  <label for="strength-exercise-date">Date of Exercise</label>
-                  <input id="strength-exercise-date" class="form-control" type="date">
-                </div>
-                <br>
-                <button id ="strength-button" class="btn btn-info btn-lg">Submit!</button>
-              </form>
+        <div class="form-group" id="aerobic-exercise-divider" data-aos="fade-up" data-aos-delay="800">
+          <form id="aerobic-exercise-form">
+            <select class="form-control" id="aerobic-type">
+              <option>Walking</option>
+              <option>Running</option>
+              <option>Biking</option>
+              <option>Swimming</option>
+            </select>
+            <input class="form-control" placeholder="Time" id="time" type="number" required>
+            <input class = "form-control" placeholder="Distance" id="distance" type="number" required>
+            <div class="form-group">
+              <label for="aerobic-exercise-date">Date of Exercise</label>
+              <input id="aerobic-exercise-date" class="form-control" type="date">
             </div>
-
-            <div class="form-group" id="aerobic-exercise-divider">
-              <form id="aerobic-exercise-form">
-                <select class="form-control" id="aerobic-type">
-                  <option>Walking</option>
-                  <option>Running</option>
-                  <option>Biking</option>
-                  <option>Swimming</option>
-                </select>
-                <input class="form-control" placeholder="Time" id="time" type="number" required>
-                <input class = "form-control" placeholder="Distance" id="distance" type="number" required>
-                <div class="form-group">
-                  <label for="aerobic-exercise-date">Date of Exercise</label>
-                  <input id="aerobic-exercise-date" class="form-control" type="date">
-                </div>
-                <br>
-                <button id="aerobic-button" class="btn btn-info btn-lg">Submit!</button>
-              </form>
-            </div>
-          </div>
-          
-          <div class="mr-lg-auto mt-5 mt-lg-0 mt-md-0 col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="800">
-            <div class="team-thumb">
-              <img src="images/team/team-image01.jpg" class="img-fluid" alt="Trainer">
-              <div class="team-info d-flex flex-column">
-                <h3>Catherina</h3>
-                <span>Body trainer</span>
-                <ul class="social-icon mt-3">
-                  <li><a href="#" class="fa fa-instagram"></a></li>
-                  <li><a href="#" class="fa fa-facebook"></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
+            <br>
+            <button id="aerobic-button" class="btn btn-info btn-lg">Submit!</button>
+          </form>
         </div>
       </div>
     </section>
 
-    <!-- CLASS -->
+    <!-- CLASS
     <section class="class section" id="class">
       <div class="container">
         <div class="row">
@@ -223,9 +205,9 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <!-- SCHEDULE -->
+    <!-- SCHEDULE
     <section class="schedule section" id="schedule">
       <div class="container">
 
@@ -328,8 +310,7 @@
           </div>
         </div>
       </div>
-    </section>
-
+    </section> -->
 
     <!-- FOOTER -->
     <footer class="site-footer">
@@ -388,74 +369,5 @@
     <script src="js/smoothscroll.js"></script>
     <script src="js/custom.js"></script>
 
-  </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<body>
-  <div class="container">
-    <div class="jumbotron border border-warning" id="landing-page">
-      <h1 class="display-1">Get Fit Bit by Bit</h1>
-      <p class="lead">Small efforts increment into big changes!</p>
-      <hr class="my-4">
-        <br>
-          <button class="btn">Start!</a>
-    </div>
-
-    <div id="user-info">
-      <form id="user-info-form">
-        <label for="name">Name:</label>
-        <input id="name" type="text">
-        <br>
-        <label for="weight">Weight:</label>
-        <input id="weight" type="number">
-        <div class="form-group">
-          <p>Please select your sex:<p>
-          <label for="sex">
-            <input type="radio" name="sex" value="female">
-            Female  
-          </label>
-          <label for="sex">
-            <input type="radio" name="sex" value="male">  
-            Male
-          </label>  
-        </div> 
-        <button id="submit">Submit!</button> 
-      </form>  
-    </div>  
-            
-    <div id="exercise-data">
-      <form id="strength">
-        <div class="form-group">
-          <select class="form-control" id="strength-type">
-            <option>Push-ups</option>
-            <option>Sit-ups</option>
-            <option>Pull-ups</option>
-            <option>Squats</option>
-          </select>
-
-          <label for="reps">Reps:</label>
-          <input id="reps" type="number" required>
-        
-        
-        </div>
-      </form>
-
-      <form id="aerobic">
-
-      </form>
-    </div>
-    </div>
   </body>
 </html>

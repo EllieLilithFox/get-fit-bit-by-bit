@@ -1,5 +1,5 @@
 import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 //import './../css/font-awesome.min.css';
 import './../css/aos.css';
 import './../css/tooplate-gymso-style.css';
