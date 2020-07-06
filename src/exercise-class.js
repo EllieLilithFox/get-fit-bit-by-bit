@@ -1,15 +1,15 @@
 export class Exercise {
   //name-type of exercise, time - in minutes, distance - in miles
-  constructor(name, time, distance, MET) {
+  constructor(name, time, MET, distance) {
     this.name = name;
     this.time = time;
-    this.distance = distance;
     this.MET = MET;
+    this.distance = distance;
     this.date = new Date();
   }
 
   calcCalories(person) {
-    let caloriesInMinute = 0.0175 * this.MET * (person.weight / 2.2);
+    let caloriesInMinute = Math.floor(0.0175 * this.MET * (person.weight / 2.2)*100)/100;
     return caloriesInMinute * this.time;
   }  
 }

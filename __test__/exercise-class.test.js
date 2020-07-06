@@ -11,7 +11,7 @@ describe('create Exercise class instance', () => {
     expect(newExercise).toMatchObject({
       name : "running",
       time : 45,
-      distance : 5,
+      MET : 5,
       date: now
     });
   });
