@@ -80,7 +80,7 @@
     <!-- ABOUT -->
     <section class="about section" id="exercises">
       <div class="container">
-        <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">Hello, <span class="name"></span>enter your exercises below!</h2>
+        <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">Hello, <span id="name"></span>enter your exercises below!</h2>
         <hr>
         <br>
         <div class="radio" data-aos="fade-up" data-aos-delay="800">
@@ -97,10 +97,6 @@
         <div class="form-group" id="strength-exercise-divider" data-aos="fade-up" data-aos-delay="800">
           <form id="strength-exercise-form">
             <select class="form-control" id="strength-type">
-              <option>Walking</option>
-              <option>Running</option>
-              <option>Biking</option>
-              <option>Swimming</option>
               <option>Push-ups</option>
               <option>Sit-ups</option>
               <option>Pull-ups</option>
@@ -120,13 +116,18 @@
         <div class="form-group" id="aerobic-exercise-divider" data-aos="fade-up" data-aos-delay="800">
           <form id="aerobic-exercise-form">
             <select class="form-control" id="aerobic-type">
-              <option>Walking</option>
-              <option>Running</option>
-              <option>Biking</option>
-              <option>Swimming</option>
+              <option value="walking">Walking</option>
+              <option value="running">Running</option>
+              <option value="cycling">Biking</option>
+              <option value="swimming">Swimming</option>
             </select>
             <input class="form-control" placeholder="Time" id="time" type="number" required>
             <input class = "form-control" placeholder="Distance" id="distance" type="number" required>
+            <select class="form-control" id="intensity">
+              <option value="Slow">Slow</option>
+              <option value="Moderate">Moderate</option>
+              <option value="Fast">Fast</option>
+            </select>
             <div class="form-group">
               <label for="aerobic-exercise-date">Date of Exercise</label>
               <input id="aerobic-exercise-date" class="form-control" type="date">

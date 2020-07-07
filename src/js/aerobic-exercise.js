@@ -4,7 +4,7 @@ export class AerobicExercise {
     this.name = name;
     this.time = time;
     this.distance = distance;
-    this.intensity = intensity
+    this.intensity = intensity;
   }
 
   calcAerobicExerciseCalories(person) {
@@ -12,7 +12,9 @@ export class AerobicExercise {
   }  
 }
 
-const intensity = {
+
+
+/*const intensity = {
   cyclingSlow: 6,
   cyclingModerate: 8,
   cyclingFast: 10,
@@ -23,12 +25,4 @@ const intensity = {
   walkingModerate: 3.5,
   walkingFast: 4,
   walkingRace: 6.5,
-  dancingSlow: 5,
-  dancingModerate: 6,
-  dancingFast: 7,
-  rowingMachineModerate: 8.5,
-  rowingMachineFast: 12,
-  stairsLow: 5,
-  stairsModerate: 7,
-  stairsFast: 11
-};
+};*/
