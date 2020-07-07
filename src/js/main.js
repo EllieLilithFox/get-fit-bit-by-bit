@@ -27,26 +27,6 @@ function createNewDateObject() {
   }
 }*/
 
-const intensityObject = {
-  cyclingSlow: 6,
-  cyclingModerate: 8,
-  cyclingFast: 10,
-  runningSlow: 8,
-  runningModerate: 10,
-  runningFast: 12.5,
-  walkingSlow: 3,
-  walkingModerate: 3.5,
-  walkingFast: 5,
-  swimmingSlow: 6,
-  swimmingModerate: 8,
-  swimmingFast: 10
-};
-
-function calculateIntensityCoef(typeOfExercise, intensity) {
-  let propertyName = `${typeOfExercise}${intensity}`;
-  return intensityObject[propertyName];
-}
-
 $(document).ready(function() {
   let person;
   let strengthExercise;
@@ -96,7 +76,8 @@ $(document).ready(function() {
     let time = parseInt($("#time").val());
     let distance = parseInt($("#distance").val());
     let intensity = $("#intensity").val();
-    aerobicExercise = new AerobicExercise(aerobicType, time, distance, calculateIntensityCoef(aerobicType, intensity));
+    aerobicExercise = new AerobicExercise(aerobicType, time, distance, intensity);
+    console.log("Intensity coef: " + aerobicExercise.calculateIntensityCoef());
     newDayActivity.addAerobicActivity(aerobicExercise);
   });
 
