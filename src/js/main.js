@@ -27,6 +27,32 @@ function createNewDateObject() {
   }
 }*/
 
+
+// Need a function to create a new date object if one doesn't already exist,
+// If one does, then push Aerobic/strength exercise object to the appropriate date's exercise array
+
+function makeOrPushExerciseObjectAndDateObject (person, date, exerciseType, exerciseObject) {
+  for(const dateObject of person.dateObjects) {
+    if (dateObject.date === date) {
+      if(exerciseType === "Aerobic") {
+        // push AerobicExercise to aerobicExerciseArray
+        //break
+      } else if (exerciseType === "Strength") {
+        // push StrengthExercise to strengthExerciseArray
+        //break
+      }
+    }
+      // make a new dateObject and push to person, with exercise pushed to the new dateObject exercise array
+      if(exerciseType === "Aerobic") {
+        // push AerobicExercise to aerobicExerciseArray
+        // break
+      } else if (exerciseType === "Strength"{
+        // push StrengthExercise to strengthExerciseArray
+        // break
+      }
+    }
+}
+
 $(document).ready(function() {
   let person;
   let strengthExercise;
