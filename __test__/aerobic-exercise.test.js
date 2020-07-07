@@ -1,7 +1,7 @@
 import { AerobicExercise } from "../src/aerobic-exercise.js";
 import { Person } from "../src/person-class.js";
 
-describe('create AerobicExercise class instance', () => {
+describe('AerobicExercise class tests', () => {
 
   let aerobicExercise;
   let person;
@@ -20,7 +20,7 @@ describe('create AerobicExercise class instance', () => {
     });
   });
 
-  test('should calculate calories for the exercise', () => {
+  test('should calculate calories burned for the exercise', () => {
     expect(aerobicExercise.calcAerobicExerciseCalories(person)).toBe(334.09);
   });
 });

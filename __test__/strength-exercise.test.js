@@ -1,7 +1,7 @@
 import { StrengthExercise } from "../src/strength-exercise.js";
 import { Person } from "../src/person-class.js";
 
-describe('create StrengthExercise class instance', () => {
+describe('StrengthExercise class tests', () => {
 
   let strengthExercise;
   let person;
@@ -19,7 +19,7 @@ describe('create StrengthExercise class instance', () => {
     });
   });
 
-  test('should calculate calories for the exercise', () => {
+  test('should calculate calories burned for the exercise', () => {
     expect(strengthExercise.calcStrengthExerciseCalories(person)).toBe(9.65);
   });
 });
