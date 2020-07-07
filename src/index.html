@@ -1,10 +1,209 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Blank</title>
+    <title>Git Fit Bit By Bit</title>
   </head>
   <body>
-    <h1 class="jumbotron">Jumbo</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Git Fit Bit by Bit!</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-lg-auto">
+            <li class="nav-item">
+                <a href="#home" class="nav-link smoothScroll">Home</a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#sign-up" class="nav-link smoothScroll">Sign Up</a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#exercises" class="nav-link smoothScroll">Exercises</a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#your-exercises" class="nav-link smoothScroll">Your Exercises</a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#place-holder" class="nav-link smoothScroll">Place Holder</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- HERO -->
+
+    <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
+      <div class="bg-overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto col-12">
+            <div class="hero-text mt-5 text-center">
+              <h6 data-aos="fade-up" data-aos-delay="300">a new and fun way to build a healthy lifestyle!</h6>
+              <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">Git Fit Bit by Bit!</h1>
+              <a href="#feature" class="btn custom-btn mt-3" data-aos="fade-up" data-aos-delay="600">Get started</a>
+              <a href="#about" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="700">learn more</a>           
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature" id="sign-up">
+      <div class="container">
+        <div class="row">
+          <div class="d-flex flex-column justify-content-center ml-lg-auto mr-lg-5 col-lg-5 col-md-6 col-12">
+            <h2 class="mb-3 text-white" data-aos="fade-up">New to Get Fit Bit by Bit?</h2>
+            <p data-aos="fade-up" data-aos-delay="200">Get Fit Bit by Bit is a free online tool to help you get in shape one pushup at a time!</p>
+            <a href="#" class="btn custom-btn bg-color mt-3" data-aos="fade-up" data-aos-delay="300" data-toggle="modal" data-target="#membershipForm">Become a Member</a>
+          </div>
+          <div class="mr-lg-auto mt-3 col-lg-4 col-md-6 col-12">
+            <div class="about-working-hours">
+              <h2 class="mb-4 text-white" data-aos="fade-up" data-aos-delay="500">Quote:</h2>
+              <blockquote class="blockquote mb-0">
+                <p>Motivation!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
+                <footer class="blockquote-footer"><cite title="Source Title">Some Robot</cite></footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about section" id="exercises">
+      <div class="container">
+        <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">Hello, <span id="name"></span>enter your exercises below!</h2>
+        <hr>
+        <br>
+        <div class="radio" data-aos="fade-up" data-aos-delay="800">
+          <label>
+            <input type="radio" name="exercise-type" value="aerobic" checked>
+            Aerobic
+          </label>
+          <label>
+            <input type="radio" name="exercise-type" value="muscle" checked>
+            Strength
+          </label>
+        </div>
+
+        <div class="form-group" id="strength-exercise-divider" data-aos="fade-up" data-aos-delay="800">
+          <form id="strength-exercise-form">
+            <select class="form-control" id="strength-type">
+              <option>Push-ups</option>
+              <option>Sit-ups</option>
+              <option>Pull-ups</option>
+              <option>Squats</option>
+            </select>
+            <input class="form-control" placeholder="Reps" id="reps" type="number" required>
+            <input class="form-control" placeholder="Sets" id="sets" type="number" required>
+            <div class="form-group">
+              <label for="strength-exercise-date">Date of Exercise</label>
+              <input id="strength-exercise-date" class="form-control" type="date">
+            </div>
+            <br>
+            <button id ="strength-button" class="btn btn-info btn-lg">Submit!</button>
+          </form>
+        </div>
+
+        <div class="form-group" id="aerobic-exercise-divider" data-aos="fade-up" data-aos-delay="800">
+          <form id="aerobic-exercise-form">
+            <select class="form-control" id="aerobic-type">
+              <option value="walking">Walking</option>
+              <option value="running">Running</option>
+              <option value="cycling">Biking</option>
+              <option value="swimming">Swimming</option>
+            </select>
+            <input class="form-control" placeholder="Time" id="time" type="number" required>
+            <input class = "form-control" placeholder="Distance" id="distance" type="number" required>
+            <select class="form-control" id="intensity">
+              <option value="Slow">Slow</option>
+              <option value="Moderate">Moderate</option>
+              <option value="Fast">Fast</option>
+            </select>
+            <div class="form-group">
+              <label for="aerobic-exercise-date">Date of Exercise</label>
+              <input id="aerobic-exercise-date" class="form-control" type="date">
+            </div>
+            <br>
+            <button id="aerobic-button" class="btn btn-info btn-lg">Submit!</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section class="schedule section" id="your-exercises">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-12 col-12 text-center">
+            <h6 data-aos="fade-up">our weekly GYM schedules</h6>
+            <h2 class="text-white" data-aos="fade-up" data-aos-delay="200">Workout Timetable</h2>
+          </div>
+          <div class="col-lg-12 py-5 col-md-12 col-12">
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="ml-auto col-lg-4 col-md-5">
+            <p class="copyright-text">Copyright &copy; 2020 Get Fit: Bit By Bit.
+            <br>Design: <a href="https://www.tooplate.com">Tooplate</a></p>
+          </div>
+          
+          <div class="d-flex justify-content-center mx-auto col-lg-5 col-md-7 col-12">
+            <p class="mr-4">
+              <i class="fa fa-envelope-o mr-1"></i>
+              <a href="#">hello@company.co</a>
+            </p>
+            <p><i class="fa fa-phone mr-1"></i> 010-020-0840</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="membershipForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="membershipFormLabel">User Information</h2>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          
+          <div class="modal-body">
+            <form class="membership-form webform" role="form">
+              <input type="text" class="form-control" id="name" name="cf-name" placeholder="Enter Your Name">
+              <input type="number" class="form-control" id="weight" name="cf-weight" placeholder="Enter Your Weight" pattern="[0-500]" required>
+              <div class="form-group">
+                <select class="form-control" name="sex" id="sex">
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div>    
+              <button type="submit" class="form-control" id="submit-button" name="submit">Submit</button>
+            </form>
+          </div>
+          
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+  
   </body>
 </html>
