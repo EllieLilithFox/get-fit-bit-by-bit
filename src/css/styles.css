@@ -3,8 +3,48 @@
   padding-bottom: 5%;
 }
 
+:root {
+  --primary-color:        #f13a11;
+  --white-color:          #ffffff;
+  --dark-color:           #171819;
+  --about-bg-color:       #f9f9f9;
+
+  --gray-color:           #909090;
+  --link-color:           #404040;
+  --p-color:              #666262;
+
+  --base-font-family:     'Plain', sans-serif;
+  --font-weight-bold:     bold;
+  --font-weight-normal:   normal;
+  --font-weight-light:    300;
+  --font-weight-thin:     100;
+
+  --h1-font-size:         48px;
+  --h2-font-size:         36px;
+  --h3-font-size:         28px;
+  --h4-font-size:         24px;
+  --h5-font-size:         22px;
+  --h6-font-size:         22px;
+  --p-font-size:          18px;
+  --base-font-size:       16px;
+  --menu-font-size:       14px;
+
+  --border-radius-large:  100%;
+  --border-radius-small:  2px;
+}
+
+
+body {
+  background: var(--white-color);
+  font-family: var(--base-font-family);
+}
+
+#aerobic-exercise-divider {
+  display: none;
+}
+
 /*---------------------------------------
-     HERO              
+    HERO              
   -----------------------------------------*/
 .hero {
   background-image: url('../images/hero-bg.jpg');
@@ -29,7 +69,7 @@
 }
 
 /*---------------------------------------
-     TYPOGRAPHY              
+    TYPOGRAPHY              
   -----------------------------------------*/
 
   h1,h2,h3,h4,h5,h6 {
@@ -353,8 +393,73 @@
     text-align: center;
   }
 
+/*---------------------------------------
+     SCHEDULE             
+  -----------------------------------------*/
+
+  .schedule {
+    background: var(--dark-color);
+  }
+
+  .schedule-table {
+    display: table;
+    border: 0;
+    text-align: center;
+  }
+
+  .schedule-table strong,
+  .schedule-table span {
+    display: block;
+    text-align: center;
+  }
+
+  .schedule-table strong {
+    color: var(--white-color);
+  }
+
+  .schedule-table span {
+    color: var(--gray-color);
+  }
+
+  .schedule-table span,
+  .schedule-table small {
+    font-size: var(--menu-font-size);
+    text-transform: uppercase;
+  }
+
+  .schedule-table small {
+    position: relative;
+    top: 10px;
+  }
+
+  .table .thead-light th,
+  .schedule-table tr td:first-child {
+    background: var(--primary-color);
+    border: 1px solid #212122;
+    color: var(--white-color);
+  }
+
+  .schedule-table .thead-light th {
+    border-bottom: 0;
+    text-transform: uppercase;
+  }
+
+  .table-bordered td, 
+  .table-bordered th {
+    border: 1px solid #212122;
+  }
+
+  .table-bordered td {
+    padding-bottom: 22px;
+  }
+
+  .table td, .table th {
+    padding: 1rem;
+  }
+
+
   /*---------------------------------------
-     RESPONSIVE STYLES              
+    RESPONSIVE STYLES              
   -----------------------------------------*/
 
   @media screen and (max-width: 992px) {
