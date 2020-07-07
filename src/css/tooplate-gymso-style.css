@@ -8,8 +8,8 @@ https://www.tooplate.com/view/2119-gymso-fitness
 
   @font-face {
       font-family: 'Plain';
-      src: url('../fonts/Plain-Regular.woff2') format('woff2'),
-          url('../fonts/Plain-Regular.woff') format('woff');
+      src: url('./../fonts/Plain-Regular.woff2') format('woff2'),
+          url('./../fonts/Plain-Regular.woff') format('woff');
       font-weight: normal;
       font-style: normal;
   }
