@@ -7,13 +7,48 @@ import {Person} from './person-class';
 import {DayActivity} from './day-activity';
 import {AerobicExercise} from './aerobic-exercise';
 import {StrengthExercise} from './strength-exercise';
+
+import {getActive} from './meetup-api';
+import {getQuote} from './quote-api';
+
 import {OurCharts} from './OurCharts'
+
 
 // Maybe won't use these
 // import './css/font-awesome.min.css';
 //import '../css/aos.css';
 //import '../css/tooplate-gymso-style.css';
 
+
+// Activity API Call -----
+
+async function displayActivity() {
+  const jsonifiedResponse = await getActive();
+  if (jsonifiedResponse === false) {
+    $("#quote").text("Sorry no quotes today.");
+  } else {
+    $("#activity").html(`${JSON.stringify(jsonifiedResponse, null, 4)}`);
+    console.log(jsonifiedResponse.results);
+  }
+}
+
+// Quote API Call -----
+
+async function displayQuote() {
+  const quotesResponse = await getQuote();
+  if (quotesResponse === false) {
+    $("#quote").text("Sorry no quotes today.");
+  } else {
+    let random = Math.floor(Math.random() * quotesResponse.length);
+    $("#quote").html(`${quotesResponse[random].text}`);
+    if (!quotesResponse[random].author) {
+      $("#author").html("Author Unknown");
+    } else {
+      $("#author").html(`${quotesResponse[random].author}`);
+    }
+    // console.log(jsonifiedResponse);
+  }
+}
 
 $(document).ready(function() {
   // Test Data
@@ -37,6 +72,10 @@ $(document).ready(function() {
   let strengthExercise;
   let aerobicExercise; 
   let newDayActivity;
+
+  displayActivity();
+  displayQuote();
+
   let chart = new OurCharts();
 
   $(".membership-form").submit(function(event) {
@@ -44,6 +83,11 @@ $(document).ready(function() {
     let nameInput = $("#name").val();
     let weightInput = parseInt($("#weight").val());
     person = new Person (nameInput, weightInput);
+    $("#user-name").text(person.name);
+    $("#name").val("");
+    $("#weight").val("");
+    $("#exercises").fadeIn();
+    $(".modal-body").html("You are subscribed");
     console.log(person);
   });
 
@@ -100,6 +144,9 @@ $(document).ready(function() {
 
   $('[name="exercise-type"]:checked').trigger('click');
 
+
+});
+
   $('#aerobic-calorie-burn-chart-button').click(function(){
     chart.calorieLineChart(person);
     $('#strength-total-reps-chart, #aerobic-exercise-time-chart').hide();
@@ -119,3 +166,4 @@ $(document).ready(function() {
   });
 
 });
+

@@ -4,9 +4,9 @@
     <title>Git Fit Bit by Bit</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.html">Git Fit Bit by Bit!</a>
+        <a class="navbar-brand" id="navbar-text" href="index.html">Git Fit Bit by Bit!</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="#your-exercises" class="nav-link smoothScroll">Your Exercises</a>
+                <a href="#your-exercises" class="nav-link smoothScroll">Your Exercise Data</a>
             </li>
 
             <li class="nav-item">
@@ -38,7 +38,7 @@
       </div>
     </nav>
     
-    <!-- HERO -->
+    <!-- Home -->
 
     <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
       <div class="bg-overlay"></div>
@@ -47,9 +47,9 @@
           <div class="col-lg-8 col-md-10 mx-auto col-12">
             <div class="hero-text mt-5 text-center">
               <h6 data-aos="fade-up" data-aos-delay="300">a new and fun way to build a healthy lifestyle!</h6>
-              <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">Git Fit Bit by Bit!</h1>
-              <a href="#feature" class="btn custom-btn mt-3" data-aos="fade-up" data-aos-delay="600">Get started</a>
-              <a href="#about" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="700">learn more</a>           
+              <h1 class="text-white1" data-aos="fade-up" data-aos-delay="500">Git Fit Bit by Bit!</h1>
+              <a href="#sign-up" class="btn btn-warning btn-lg mt-3" data-aos="fade-up" data-aos-delay="600">Get started</a>
+              <a href="#place-holder" class="btn btn-outline-success btn-lg mt-3" data-aos="fade-up" data-aos-delay="700">Learn more</a>           
             </div>
           </div>
         </div>
@@ -62,14 +62,14 @@
           <div class="d-flex flex-column justify-content-center ml-lg-auto mr-lg-5 col-lg-5 col-md-6 col-12">
             <h2 class="mb-3 text-white" data-aos="fade-up">New to Get Fit Bit by Bit?</h2>
             <p data-aos="fade-up" data-aos-delay="200">Get Fit Bit by Bit is a free online tool to help you get in shape one pushup at a time!</p>
-            <a href="#" class="btn custom-btn bg-color mt-3" data-aos="fade-up" data-aos-delay="300" data-toggle="modal" data-target="#membershipForm">Become a Member</a>
+            <a href="#" class="btn btn-warning btn-lg mt-3" data-aos="fade-up" data-aos-delay="300" data-toggle="modal" data-target="#membershipForm">Become a Member</a>
           </div>
           <div class="mr-lg-auto mt-3 col-lg-4 col-md-6 col-12">
             <div class="about-working-hours">
               <h2 class="mb-4 text-white" data-aos="fade-up" data-aos-delay="500">Quote:</h2>
               <blockquote class="blockquote mb-0">
-                <p>Motivation!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
-                <footer class="blockquote-footer"><cite title="Source Title">Some Robot</cite></footer>
+                <p id="quote"></p>
+                <footer class="blockquote-footer"><cite title="Source Title"><span id="author"></span></cite></footer>
               </blockquote>
             </div>
           </div>
@@ -77,10 +77,10 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- Exercise input -->
     <section class="about section" id="exercises">
       <div class="container">
-        <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">Hello, <span id="user-name"></span>enter your exercises below!</h2>
+        <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">Hello <span id="user-name"></span>, enter your exercises below!</h2>
         <hr>
         <br>
         <div class="radio" data-aos="fade-up" data-aos-delay="800">
@@ -106,9 +106,8 @@
             <input class="form-control" placeholder="Sets" id="sets" type="number" required>
             <div class="form-group">
               <label for="strength-exercise-date">Date of Exercise</label>
-              <input id="strength-exercise-date" class="form-control" type="date">
+              <input id="strength-exercise-date" class="form-control" type="date" required>
             </div>
-            <br>
             <button id ="strength-button" class="btn btn-info btn-lg">Submit!</button>
           </form>
         </div>
@@ -121,8 +120,8 @@
               <option value="cycling">Biking</option>
               <option value="swimming">Swimming</option>
             </select>
-            <input class="form-control" placeholder="Time" id="time" type="number" required>
-            <input class = "form-control" placeholder="Distance" id="distance" type="number" required>
+            <input class="form-control" placeholder="Time in minutes" id="time" type="number" required>
+            <input class = "form-control" placeholder="Distance in miles" id="distance" type="number" required>
             <select class="form-control" id="intensity">
               <option value="Slow">Slow</option>
               <option value="Moderate">Moderate</option>
@@ -130,7 +129,7 @@
             </select>
             <div class="form-group">
               <label for="aerobic-exercise-date">Date of Exercise</label>
-              <input id="aerobic-exercise-date" class="form-control" type="date">
+              <input id="aerobic-exercise-date" class="form-control" type="date" required>
             </div>
             <br>
             <button id="aerobic-button" class="btn btn-info btn-lg">Submit!</button>
@@ -142,6 +141,9 @@
     <!-- Charts -->
     <section class="schedule section" id="your-exercises">
       <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-12 text-center">
+            <h2 class="text-white" data-aos="fade-up" data-aos-delay="200">Your Exercise Data</h2>
         <button id="aerobic-calorie-burn-chart-button" class="btn btn-info">Calorie Burn By Day</button>
         <button id="aerobic-exercise-time-chart-button" class="btn btn-info">Total Aerobic Exercise Time</button>
         <button id="strength-total-reps-chart-button" class="btn btn-info">Total Strength Exercise Reps</button>
@@ -161,27 +163,22 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="site-footer">
+    <!-- CLASS -->
+    <section class="class section" id="class">
       <div class="container">
         <div class="row">
-          <div class="ml-auto col-lg-4 col-md-5">
-            <p class="copyright-text">Copyright &copy; 2020 Get Fit: Bit By Bit.
-            <br>Design: <a href="https://www.tooplate.com">Tooplate</a></p>
+          <div class="col-lg-12 col-12 text-center mb-5">
+            <h6 data-aos="fade-up">Get A Perfect Body</h6>
+            <h2 data-aos="fade-up" data-aos-delay="200">Our Training Classes</h2>
           </div>
           
-          <div class="d-flex justify-content-center mx-auto col-lg-5 col-md-7 col-12">
-            <p class="mr-4">
-              <i class="fa fa-envelope-o mr-1"></i>
-              <a href="#">hello@company.co</a>
-            </p>
-            <p><i class="fa fa-phone mr-1"></i> 010-020-0840</p>
+          <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="400">
+           <div id="activity"></div>
           </div>
-        </div>
       </div>
-    </footer>
+    </section>
 
-    <!-- Modal -->
+    <!-- User Info -->
     <div class="modal fade" id="membershipForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -195,13 +192,7 @@
           <div class="modal-body">
             <form class="membership-form webform" role="form">
               <input type="text" class="form-control" id="name" name="cf-name" placeholder="Enter Your Name">
-              <input type="number" class="form-control" id="weight" name="cf-weight" placeholder="Enter Your Weight" pattern="[0-500]" required>
-              <div class="form-group">
-                <select class="form-control" name="sex" id="sex">
-                  <option>Male</option>
-                  <option>Female</option>
-                </select>
-              </div>    
+              <input type="number" class="form-control" id="weight" name="cf-weight" placeholder="Enter Your Weight In Pounds" pattern="[0-500]" required>
               <button type="submit" class="form-control" id="submit-button" name="submit">Submit</button>
             </form>
           </div>

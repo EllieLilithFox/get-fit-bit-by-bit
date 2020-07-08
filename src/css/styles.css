@@ -1,3 +1,9 @@
+html {
+  scroll-behavior: smooth;
+}
+
+
+
 .container {
   padding-top: 5%;
   padding-bottom: 5%;
@@ -38,6 +44,9 @@
   --border-radius-small:  2px;
 }
 
+#exercises {
+display: none;
+}
 
 body {
   background: var(--white-color);
@@ -70,13 +79,21 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.85;
+  opacity: 1.5%;
 }
 
 /*---------------------------------------
     TYPOGRAPHY              
   -----------------------------------------*/
+.text-white1 {
+  font-size: 80px;
+  color: white;
+}
 
+#navbar-text {
+  font-family: var(--base-font-family);
+  letter-spacing: 2px;
+}
   h1,h2,h3,h4,h5,h6 {
     font-weight: var(--font-weight-thin);
     line-height: normal;
@@ -462,6 +479,12 @@ body {
     padding: 1rem;
   }
 
+  /*---------------------------------------
+    CUSTOM STYLES              
+  -----------------------------------------*/
+  .form-control {
+    margin-bottom: 10px;
+  }
 
   /*---------------------------------------
     RESPONSIVE STYLES              
