@@ -7,6 +7,7 @@ import {Person} from './person-class';
 import {DayActivity} from './day-activity';
 import {AerobicExercise} from './aerobic-exercise';
 import {StrengthExercise} from './strength-exercise';
+import {OurCharts} from './OurCharts'
 
 // Maybe won't use these
 // import './css/font-awesome.min.css';
@@ -19,9 +20,21 @@ import {StrengthExercise} from './strength-exercise';
 
 $(document).ready(function() {
   let person;
+  // Test Data
+  let testPerson = new Person("Test", "155")
+  testPerson.addDayActivity(new DayActivity("2020-07-08"));
+  testPerson.addDayActivity(new DayActivity("2020-07-07"));
+  testPerson.addDayActivity(new DayActivity("2020-07-06"));
+  testPerson.addDayActivity(new DayActivity("2020-07-05"));
+  testPerson.findDayActivityObject("2020-07-08").addAerobicActivity(new AerobicExercise("walking", "20", "11", "Slow"));
+  testPerson.findDayActivityObject("2020-07-07").addAerobicActivity(new AerobicExercise("walking", "25", "9", "Slow"));
+  testPerson.findDayActivityObject("2020-07-06").addAerobicActivity(new AerobicExercise("walking", "34", "10", "Slow"));
+  testPerson.findDayActivityObject("2020-07-05").addAerobicActivity(new AerobicExercise("walking", "15", "9", "Slow"));
+
   let strengthExercise;
   let aerobicExercise; 
   let newDayActivity;
+  let chart = new OurCharts();
 
   $(".membership-form").submit(function(event) {
     event.preventDefault();
@@ -81,5 +94,10 @@ $(document).ready(function() {
   });
 
   $('[name="exercise-type"]:checked').trigger('click');
+
+  $('#aerobic-calorie-burn-chart').click(function(){
+    chart.calorieLineChart(testPerson);
+    $('#myChart').show();
+  });
 
 });

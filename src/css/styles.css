@@ -3,6 +3,11 @@
   padding-bottom: 5%;
 }
 
+#myChart {
+  display: none;
+  background-color: white;
+}
+
 :root {
   --primary-color:        #f13a11;
   --white-color:          #ffffff;
