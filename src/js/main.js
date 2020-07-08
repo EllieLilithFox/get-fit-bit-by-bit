@@ -7,6 +7,7 @@ import {Person} from './person-class';
 import {DayActivity} from './day-activity';
 import {AerobicExercise} from './aerobic-exercise';
 import {StrengthExercise} from './strength-exercise';
+import {getActive} from './meetup-api';
 import {getQuote} from './quote-api';
 
 // Maybe won't use these
@@ -14,12 +15,33 @@ import {getQuote} from './quote-api';
 //import '../css/aos.css';
 //import '../css/tooplate-gymso-style.css';
 
-async function displayQuote() {
-  const jsonifiedResponse = await apiQuote();
+// Activity API Call -----
+
+async function displayActivity() {
+  const jsonifiedResponse = await getActive();
   if (jsonifiedResponse === false) {
-    $("#randomPhrase").text("Sorry no quotes today.");
+    $("#quote").text("Sorry no quotes today.");
   } else {
-    $("#randomPhrase").text(`${properlyNamedVariable}`);
+    $("#activity").html(`${jsonifiedResponse.results.topicID}`);
+    console.log(jsonifiedResponse.results[0].assetTopics[0].topic);
+  }
+}
+
+// Quote API Call -----
+
+async function displayQuote() {
+  const quotesResponse = await getQuote();
+  if (quotesResponse === false) {
+    $("#quote").text("Sorry no quotes today.");
+  } else {
+    let random = Math.floor(Math.random() * quotesResponse.length);
+    $("#quote").html(`${quotesResponse[random].text}`);
+    if (!quotesResponse[random].author) {
+      $("#author").html("Author Unknown");
+    } else {
+      $("#author").html(`${quotesResponse[random].author}`);
+    }
+    // console.log(jsonifiedResponse);
   }
 }
 
@@ -28,16 +50,20 @@ $(document).ready(function() {
   let strengthExercise;
   let aerobicExercise; 
   let newDayActivity;
+  displayActivity();
+  displayQuote();
+
 
   $(".membership-form").submit(function(event) {
     event.preventDefault();
     let nameInput = $("#name").val();
     let weightInput = parseInt($("#weight").val());
     person = new Person (nameInput, weightInput);
+    $("#user-name").text(person.name);
     $("#name").val("");
     $("#weight").val("");
-    $("#user-name").show(nameInput);
     $("#exercises").fadeIn();
+    $(".modal-body").html("You are subscribed");
     console.log(person);
   });
 
