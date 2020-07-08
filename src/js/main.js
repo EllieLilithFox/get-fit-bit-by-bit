@@ -13,49 +13,22 @@ import {StrengthExercise} from './strength-exercise';
 //import '../css/aos.css';
 //import '../css/tooplate-gymso-style.css';
 
-/*let today = new Date(); 
-function getFullDate(date) {
-  return `${date.getDate()} ${date.getMonth() + 1} ${date.getFullYear()}`; //"7 7 2020"
-}
-let newDayActivity;
-
-function createNewDateObject() {
-  if (getFullDate(today) == newDayActivity.date) {
-    return newDayActivity;
-  } else {
-    newDayActivity = new DayActivity(getFullDate(today));
-  }
+/*function getFullDate(date) {
+  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`; //"7 7 2020"
 }*/
 
 $(document).ready(function() {
   let person;
   let strengthExercise;
-  let aerobicExercise;
-  
-  let today = new Date(); 
-  function getFullDate(date) {
-    return `${date.getDate()} ${date.getMonth() + 1} ${date.getFullYear()}`; //"7 7 2020"
-  }
-  let newDayActivity = new DayActivity(getFullDate(today));
+  let aerobicExercise; 
+  let newDayActivity;
 
-  /*function createNewDateObject() {
-    if (getFullDate(today) == newDayActivity.date) {
-      return newDayActivity;
-    } else {
-      newDayActivity = new DayActivity(getFullDate(today));
-    }
-  }*/
-
-  // Array of dates and their prospective exercises
-  //let exerciseDates = [];
-
-  $(".membership-form webform").submit(function(event) {
+  $(".membership-form").submit(function(event) {
     event.preventDefault();
     let nameInput = $("#name").val();
     let weightInput = parseInt($("#weight").val());
-    //let sexInput = $("input:radio[name=sex]checked").val()
     person = new Person (nameInput, weightInput);
-    $('#name').text(person.name);
+    console.log(person);
   });
 
   $("#strength-exercise-form").submit(function(event) {
@@ -63,11 +36,18 @@ $(document).ready(function() {
     let strengthType = $("#strength-type").val();
     let reps = parseInt($("#reps").val());
     let sets = parseInt($("#sets").val());
+    //make date input required or default !?!?!??!
+    let date = $("#strength-exercise-date").val();
     strengthExercise = new StrengthExercise(strengthType, sets, reps);
-    newDayActivity.addStrengthActivity(strengthExercise);
-    //console.log("Calories burned: " + newDayActivity.calcDayCalories(person));
-    //let strenghtDate = $("#strength-exercise-date")
-    //let date = new Date
+    if(!person.findDayActivityObject(date)) {
+      newDayActivity = new DayActivity(date);
+      person.addDayActivity(newDayActivity);
+      newDayActivity.addStrengthActivity(strengthExercise);
+    } else {
+      person.findDayActivityObject(date).addStrengthActivity(strengthExercise);
+    }
+    console.log(newDayActivity);
+    console.log(person);
   });
 
   $("#aerobic-exercise-form").submit(function(event) {
@@ -76,9 +56,17 @@ $(document).ready(function() {
     let time = parseInt($("#time").val());
     let distance = parseInt($("#distance").val());
     let intensity = $("#intensity").val();
+    let date = $("#aerobic-exercise-date").val();
     aerobicExercise = new AerobicExercise(aerobicType, time, distance, intensity);
-    console.log("Intensity coef: " + aerobicExercise.calculateIntensityCoef());
-    newDayActivity.addAerobicActivity(aerobicExercise);
+    if(!person.findDayActivityObject(date)) {
+      newDayActivity = new DayActivity(date);
+      person.addDayActivity(newDayActivity);
+      newDayActivity.addAerobicActivity(aerobicExercise);
+    } else {
+      person.findDayActivityObject(date).addAerobicActivity(aerobicExercise);
+    }
+    console.log(newDayActivity);
+    console.log(person);
   });
 
   $("input[name$='exercise-type']").click(function(){
