@@ -22,8 +22,8 @@ async function displayActivity() {
   if (jsonifiedResponse === false) {
     $("#quote").text("Sorry no quotes today.");
   } else {
-    $("#activity").html(`${jsonifiedResponse.results.topicID}`);
-    console.log(jsonifiedResponse.results[0].assetTopics[0].topic);
+    $("#activity").html(`${JSON.stringify(jsonifiedResponse, null, 4)}`);
+    console.log(jsonifiedResponse.results);
   }
 }
 
