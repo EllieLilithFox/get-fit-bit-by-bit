@@ -51,7 +51,6 @@ export class OurCharts {
       aerobicExerciseTime.push(dayActivityObject.calcTimeOfAerobicActivities());
     });
 
-
     let barChart = new Chart(ctx, {
       type: 'bar',
       data: { 
@@ -71,7 +70,7 @@ export class OurCharts {
   strengthRepsPerDay (personObject) {
     let ctx = $('#strength-total-reps-chart');
 
-    // An Array of all days on which an strength exercise occured
+    // An Array of all days on which a strength exercise occured
     let strengthExerciseDates = [];
     personObject.dayActivityObjects.forEach (function(dayActivityObject) {
       strengthExerciseDates.push(dayActivityObject.date.toString());
@@ -82,7 +81,6 @@ export class OurCharts {
     personObject.dayActivityObjects.forEach (function(dayActivityObject) {
       totalRepsPerDay.push(dayActivityObject.calcNumberOfStrengthActivities());
     });
-
 
     let barChart = new Chart(ctx, {
       type: 'bar',
@@ -99,6 +97,4 @@ export class OurCharts {
       options: {}
     });
   }
-
-
 }
