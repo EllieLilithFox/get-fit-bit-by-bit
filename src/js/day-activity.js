@@ -13,22 +13,18 @@ export class DayActivity {
     this.aerobicActivities.push(activity);
   }
 
-  calcNumberOfStrengthActivities(activityName) {
+  calcNumberOfStrengthActivities() {
     let totalNumberOfReps = 0;
     this.strengthActivities.forEach((element) => {
-      if(element.name == activityName) {
         totalNumberOfReps += element.sets * element.reps;
-      }
     });
     return totalNumberOfReps;
   }
 
-  calcTimeOfAerobicActivities(activityName) {
+  calcTimeOfAerobicActivities() {
     let totalTime = 0;
     this.aerobicActivities.forEach((element) => {
-      if(element.name == activityName) {
         totalTime += element.time;
-      }
     });
     return totalTime;
   }
