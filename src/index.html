@@ -4,9 +4,9 @@
     <title>Git Fit Bit By Bit</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-black bg-black">
+    <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.html">Git Fit Bit by Bit!</a>
+        <a class="navbar-brand" id="navbar-text" href="index.html">Git Fit Bit by Bit!</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -47,9 +47,9 @@
           <div class="col-lg-8 col-md-10 mx-auto col-12">
             <div class="hero-text mt-5 text-center">
               <h6 data-aos="fade-up" data-aos-delay="300">a new and fun way to build a healthy lifestyle!</h6>
-              <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">Git Fit Bit by Bit!</h1>
-              <a href="#sign-up" class="btn btn-warning mt-3" data-aos="fade-up" data-aos-delay="600">Get started</a>
-              <a href="#place-holder" class="btn btn-outline-success mt-3" data-aos="fade-up" data-aos-delay="700">Learn more</a>           
+              <h1 class="text-white1" data-aos="fade-up" data-aos-delay="500">Git Fit Bit by Bit!</h1>
+              <a href="#sign-up" class="btn btn-warning btn-lg mt-3" data-aos="fade-up" data-aos-delay="600">Get started</a>
+              <a href="#place-holder" class="btn btn-outline-success btn-lg mt-3" data-aos="fade-up" data-aos-delay="700">Learn more</a>           
             </div>
           </div>
         </div>
@@ -68,8 +68,8 @@
             <div class="about-working-hours">
               <h2 class="mb-4 text-white" data-aos="fade-up" data-aos-delay="500">Quote:</h2>
               <blockquote class="blockquote mb-0">
-                <p>Motivation!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
-                <footer class="blockquote-footer"><cite title="Source Title">Some Robot</cite></footer>
+                <p id="quote"></p>
+                <footer class="blockquote-footer"><cite title="Source Title"><span id="author"></span></cite></footer>
               </blockquote>
             </div>
           </div>
@@ -80,7 +80,7 @@
     <!-- Exercise input -->
     <section class="about section" id="exercises">
       <div class="container">
-        <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">Hello, <span id="user-name"></span>enter your exercises below!</h2>
+        <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">Hello <span id="user-name"></span>, enter your exercises below!</h2>
         <hr>
         <br>
         <div class="radio" data-aos="fade-up" data-aos-delay="800">
@@ -141,16 +141,26 @@
     <!-- SCHEDULE -->
     <section class="schedule section" id="your-exercises">
       <div class="container">
-
         <div class="row">
           <div class="col-lg-12 col-12 text-center">
-            <h6 data-aos="fade-up">our weekly GYM schedules</h6>
-            <h2 class="text-white" data-aos="fade-up" data-aos-delay="200">Workout Timetable</h2>
-          </div>
-          <div class="col-lg-12 py-5 col-md-12 col-12">
-            
+            <h2 class="text-white" data-aos="fade-up" data-aos-delay="200">Your Exercise Data</h2>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- CLASS -->
+    <section class="class section" id="class">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-12 text-center mb-5">
+            <h6 data-aos="fade-up">Get A Perfect Body</h6>
+            <h2 data-aos="fade-up" data-aos-delay="200">Our Training Classes</h2>
+          </div>
+          
+          <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="400">
+           <div id="activity"></div>
+          </div>
       </div>
     </section>
 
