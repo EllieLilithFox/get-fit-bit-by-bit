@@ -7,15 +7,21 @@ import {Person} from './person-class';
 import {DayActivity} from './day-activity';
 import {AerobicExercise} from './aerobic-exercise';
 import {StrengthExercise} from './strength-exercise';
+import {getQuote} from './quote-api';
 
 // Maybe won't use these
 // import './css/font-awesome.min.css';
 //import '../css/aos.css';
 //import '../css/tooplate-gymso-style.css';
 
-/*function getFullDate(date) {
-  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`; //"7 7 2020"
-}*/
+async function displayQuote() {
+  const jsonifiedResponse = await apiQuote();
+  if (jsonifiedResponse === false) {
+    $("#randomPhrase").text("Sorry no quotes today.");
+  } else {
+    $("#randomPhrase").text(`${properlyNamedVariable}`);
+  }
+}
 
 $(document).ready(function() {
   let person;
@@ -28,6 +34,9 @@ $(document).ready(function() {
     let nameInput = $("#name").val();
     let weightInput = parseInt($("#weight").val());
     person = new Person (nameInput, weightInput);
+    $("#name").val("");
+    $("#weight").val("");
+    $("#user-name").show(nameInput);
     $("#exercises").fadeIn();
     console.log(person);
   });
