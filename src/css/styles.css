@@ -3,6 +3,11 @@
   padding-bottom: 5%;
 }
 
+#strength-total-reps-chart, #aerobic-calorie-burn-chart, #aerobic-exercise-time-chart {
+  display: none;
+  background-color: white;
+}
+
 :root {
   --primary-color:        #f13a11;
   --white-color:          #ffffff;

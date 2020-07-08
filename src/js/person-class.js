@@ -18,6 +18,6 @@ export class Person {
       }
     } else {
       return false;
-    }    
+    }
   }
 }
