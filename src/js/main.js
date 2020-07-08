@@ -30,6 +30,10 @@ $(document).ready(function() {
   testPerson.findDayActivityObject("2020-07-07").addAerobicActivity(new AerobicExercise("walking", "25", "9", "Slow"));
   testPerson.findDayActivityObject("2020-07-06").addAerobicActivity(new AerobicExercise("walking", "34", "10", "Slow"));
   testPerson.findDayActivityObject("2020-07-05").addAerobicActivity(new AerobicExercise("walking", "15", "9", "Slow"));
+  testPerson.findDayActivityObject("2020-07-08").addStrengthActivity(new StrengthExercise("push-ups", "2", "12"))
+  testPerson.findDayActivityObject("2020-07-07").addStrengthActivity(new StrengthExercise("pull-ups", "2", "12"))
+  testPerson.findDayActivityObject("2020-07-06").addStrengthActivity(new StrengthExercise("pull-ups", "2", "8"))
+  testPerson.findDayActivityObject("2020-07-05").addStrengthActivity(new StrengthExercise("push-ups", "2", "14"))
 
   let strengthExercise;
   let aerobicExercise; 
@@ -95,9 +99,22 @@ $(document).ready(function() {
 
   $('[name="exercise-type"]:checked').trigger('click');
 
-  $('#aerobic-calorie-burn-chart').click(function(){
+  $('#aerobic-calorie-burn-chart-button').click(function(){
     chart.calorieLineChart(testPerson);
-    $('#myChart').show();
+    $('#strength-total-reps-chart, #aerobic-exercise-time-chart').hide();
+    $('#aerobic-calorie-burn-chart').show();
+  });
+
+  $('#aerobic-exercise-time-chart-button').click(function(){
+    chart.aerobicActivityTimeChart(testPerson);
+    $('#aerobic-calorie-burn-chart, #strength-total-reps-chart').hide();
+    $('#aerobic-exercise-time-chart').show();
+  });
+
+  $('#strength-total-reps-chart-button').click(function(){
+    chart.strengthRepsPerDay(testPerson);
+    $('#aerobic-calorie-burn-chart, #aerobic-exercise-time-chart').hide();
+    $('#strength-total-reps-chart').show();
   });
 
 });
