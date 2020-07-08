@@ -28,6 +28,7 @@ $(document).ready(function() {
     let nameInput = $("#name").val();
     let weightInput = parseInt($("#weight").val());
     person = new Person (nameInput, weightInput);
+    $("#exercises").fadeIn();
     console.log(person);
   });
 

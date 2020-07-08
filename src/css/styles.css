@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .container {
   padding-top: 5%;
   padding-bottom: 5%;
@@ -33,6 +37,9 @@
   --border-radius-small:  2px;
 }
 
+#exercise {
+display: none;
+}
 
 body {
   background: var(--white-color);
@@ -457,6 +464,12 @@ body {
     padding: 1rem;
   }
 
+  /*---------------------------------------
+    CUSTOM STYLES              
+  -----------------------------------------*/
+  .form-control {
+    margin-bottom: 10px;
+  }
 
   /*---------------------------------------
     RESPONSIVE STYLES              
