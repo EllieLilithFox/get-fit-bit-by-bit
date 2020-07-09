@@ -31,7 +31,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="#place-holder" class="nav-link smoothScroll">Place Holder</a>
+                <a href="#training-classes" class="nav-link smoothScroll">Training Classes</a>
             </li>
           </ul>
         </div>
@@ -39,7 +39,6 @@
     </nav>
     
     <!-- Home -->
-
     <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
       <div class="bg-overlay"></div>
       <div class="container">
@@ -54,9 +53,10 @@
           </div>
         </div>
       </div>
+      <div id="sign-up"></div>
     </section>
 
-    <section class="feature" id="sign-up">
+    <section class="feature" id="sign-up-2">
       <div class="container">
         <div class="row">
           <div class="d-flex flex-column justify-content-center ml-lg-auto mr-lg-5 col-lg-5 col-md-6 col-12">
@@ -108,7 +108,7 @@
               <label for="strength-exercise-date">Date of Exercise</label>
               <input id="strength-exercise-date" class="form-control" type="date" required>
             </div>
-            <button id ="strength-button" class="btn btn-info btn-lg">Submit!</button>
+            <button id ="strength-button" class="btn btn-outline-success btn-lg">Submit!</button>
           </form>
         </div>
 
@@ -118,7 +118,6 @@
               <option value="walking">Walking</option>
               <option value="running">Running</option>
               <option value="cycling">Biking</option>
-              <option value="swimming">Swimming</option>
             </select>
             <input class="form-control" placeholder="Time in minutes" id="time" type="number" required>
             <input class = "form-control" placeholder="Distance in miles" id="distance" type="number" required>
@@ -132,8 +131,42 @@
               <input id="aerobic-exercise-date" class="form-control" type="date" required>
             </div>
             <br>
-            <button id="aerobic-button" class="btn btn-info btn-lg">Submit!</button>
+            <button id="aerobic-button" class="btn btn-outline-success btn-lg">Submit!</button>
           </form>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-5">
+            <div class="flip-card"  id="flip-card-1">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img id="flip-card-1-img" src="./images/icon/running.png" alt="Avatar" style="width:300px;height:280px;">
+                </div>
+                <div class="flip-card-back">
+                  <h1><span id="flip-card-1-header"></span></h1>
+                  <p>Intensity: <span id="flip-card-1-intensity"></span></p>
+                  <p>Time: <span id="flip-card-1-time"></span></p>
+                  <p>Distance: <span id="flip-card-1-distance"></span></p>
+                  <p><span id="flip-card-1-date"></span></p>
+                </div>
+              </div>
+            </div>  
+          </div>
+          <div class="col-md-5">  
+            <div class="flip-card" id="flip-card-2">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img id="flip-card-2-img" src="./images/icon/Push-ups.png" alt="Avatar" style="width:300px;height:280px;">
+                </div>
+                <div class="flip-card-back">
+                  <h1><span id="flip-card-2-header"></span></h1>
+                  <p>Reps: <span id="flip-card-2-reps"></span></p>
+                  <p>Sets: <span id="flip-card-2-sets"></span></p>
+                  <p><span id="flip-card-2-date"></span></p>
+                </div>
+              </div>
+            </div>
+          </div>   
         </div>
       </div>
     </section>
@@ -143,28 +176,27 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-12 text-center">
-            <h2 class="text-white" data-aos="fade-up" data-aos-delay="200">Your Exercise Data</h2>
-        <button id="aerobic-calorie-burn-chart-button" class="btn btn-info">Calorie Burn By Day</button>
-        <button id="aerobic-exercise-time-chart-button" class="btn btn-info">Total Aerobic Exercise Time</button>
-        <button id="strength-total-reps-chart-button" class="btn btn-info">Total Strength Exercise Reps</button>
+            <div class="row">
+              <div class="col-lg-12 col-12 text-center">
+                <h2 class="text-white" data-aos="fade-up" data-aos-delay="200">Workout Charts</h2>
+              </div>
+              <div class="col-lg-12 py-5 col-md-12 col-12">
+              </div>
+            </div>
+            <button id="aerobic-calorie-burn-chart-button" class="btn btn-info">Calorie Burn By Day</button>
+            <button id="aerobic-exercise-time-chart-button" class="btn btn-info">Total Aerobic Exercise Time</button>
+            <button id="strength-total-reps-chart-button" class="btn btn-info">Total Strength Exercise Reps</button>
 
-        <canvas id="aerobic-calorie-burn-chart" max-height="500"></canvas>
-        <canvas id="aerobic-exercise-time-chart" max-height="500"></canvas>
-        <canvas id="strength-total-reps-chart" max-height="500"></canvas>
-
-        <div class="row">
-          <div class="col-lg-12 col-12 text-center">
-            <h2 class="text-white" data-aos="fade-up" data-aos-delay="200">Workout Charts</h2>
+            <canvas id="aerobic-calorie-burn-chart" max-height="500"></canvas>
+            <canvas id="aerobic-exercise-time-chart" max-height="500"></canvas>
+            <canvas id="strength-total-reps-chart" max-height="500"></canvas>
           </div>
-          <div class="col-lg-12 py-5 col-md-12 col-12">
-            
-          </div>
-        </div>
+        </div>    
       </div>
     </section>
 
     <!-- CLASS -->
-    <section class="class section" id="class">
+    <section class="class section" id="training-classes">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-12 text-center mb-5">
@@ -173,7 +205,7 @@
           </div>
           
           <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="400">
-           <div id="activity"></div>
+          <div id="activity"></div>
           </div>
       </div>
     </section>
@@ -191,7 +223,7 @@
           
           <div class="modal-body">
             <form class="membership-form webform" role="form">
-              <input type="text" class="form-control" id="name" name="cf-name" placeholder="Enter Your Name">
+              <input type="text" class="form-control" id="name" name="cf-name" placeholder="Enter Your Name" required>
               <input type="number" class="form-control" id="weight" name="cf-weight" placeholder="Enter Your Weight In Pounds" pattern="[0-500]" required>
               <button type="submit" class="form-control" id="submit-button" name="submit">Submit</button>
             </form>
