@@ -8,29 +8,21 @@ import {DayActivity} from './day-activity';
 import {AerobicExercise} from './aerobic-exercise';
 import {StrengthExercise} from './strength-exercise';
 
-import {getActive} from './meetup-api';
+// import {getActive} from './meetup-api';
 import {getQuote} from './quote-api';
-
 import {OurCharts} from './OurCharts'
-
-
-// Maybe won't use these
-// import './css/font-awesome.min.css';
-//import '../css/aos.css';
-//import '../css/tooplate-gymso-style.css';
-
 
 // Activity API Call -----
 
-async function displayActivity() {
-  const jsonifiedResponse = await getActive();
-  if (jsonifiedResponse === false) {
-    $("#quote").text("Sorry no quotes today.");
-  } else {
-    $("#activity").html(`${JSON.stringify(jsonifiedResponse, null, 4)}`);
-    console.log(jsonifiedResponse.results);
-  }
-}
+// async function displayActivity() {
+//   const jsonifiedResponse = await getActive();
+//   if (jsonifiedResponse === false) {
+//     $("#quote").text("Sorry no quotes today.");
+//   } else {
+//     $("#activity").html(`${JSON.stringify(jsonifiedResponse, null, 4)}`);
+//     console.log(jsonifiedResponse.results);
+//   }
+// }
 
 // Quote API Call -----
 
@@ -48,6 +40,26 @@ async function displayQuote() {
     }
     // console.log(jsonifiedResponse);
   }
+}
+
+function updateAerobicFlipCard(aerobicExerciseObject, date) {
+  $('#flip-card-1-header').text(aerobicExerciseObject.name);
+  $('#flip-card-1-intensity').text(aerobicExerciseObject.intensity);
+  $('#flip-card-1-distance').text(aerobicExerciseObject.distance);
+  $('#flip-card-1-time').text(aerobicExerciseObject.time);
+  $('#flip-card-1-date').text(date);
+  // $('img#flip-card-1-image').attr('src', `./../images/icon/${aerobicExerciseObject.name}.png`);
+  $('#flip-card-1').show();
+  console.log(aerobicExerciseObject.name);
+}
+
+function updateStrengthFlipCard(strengthExerciseObject, date) {
+  $('#flip-card-2-header').text(strengthExerciseObject.name);
+  $('#flip-card-2-reps').text(strengthExerciseObject.reps);
+  $('#flip-card-2-sets').text(strengthExerciseObject.sets);
+  $('#flip-card-2-date').text(date);
+  // $('img#flip-card-2-image').attr('src', `./../images/icon/${aerobicExerciseObject.name}.png`);
+  $('#flip-card-2').show();
 }
 
 $(document).ready(function() {
@@ -73,7 +85,7 @@ $(document).ready(function() {
   let aerobicExercise; 
   let newDayActivity;
 
-  displayActivity();
+  // displayActivity();
   displayQuote();
 
   let chart = new OurCharts();
@@ -96,10 +108,15 @@ $(document).ready(function() {
     let strengthType = $("#strength-type").val();
     let reps = parseInt($("#reps").val());
     let sets = parseInt($("#sets").val());
-    
-    //make date input required or default !?!?!??!
     let date = $("#strength-exercise-date").val();
+    $("#reps").val("");
+    $("#sets").val("");
+    $("#strength-exercise-date").val("");
+    $("#date").val("");
+    $("#your-exercises").show();
+    //make date input required or default !?!?!??!
     strengthExercise = new StrengthExercise(strengthType, sets, reps);
+    updateStrengthFlipCard(strengthExercise, date)
     if(!person.findDayActivityObject(date)) {
       newDayActivity = new DayActivity(date);
       person.addDayActivity(newDayActivity);
@@ -118,7 +135,15 @@ $(document).ready(function() {
     let distance = parseInt($("#distance").val());
     let intensity = $("#intensity").val();
     let date = $("#aerobic-exercise-date").val();
+    $("#time").val("");
+    $("#distance").val("");
+    $("#date").val("");
+    $("#intensity").val("")
+    $("#aeroicType").val("")
+    $("#your-exercises").show();
     aerobicExercise = new AerobicExercise(aerobicType, time, distance, intensity);
+
+    updateAerobicFlipCard(aerobicExercise, date);
     
     if(!person.findDayActivityObject(date)) {
       newDayActivity = new DayActivity(date);
@@ -144,9 +169,6 @@ $(document).ready(function() {
 
   $('[name="exercise-type"]:checked').trigger('click');
 
-
-});
-
   $('#aerobic-calorie-burn-chart-button').click(function(){
     chart.calorieLineChart(person);
     $('#strength-total-reps-chart, #aerobic-exercise-time-chart').hide();
@@ -164,6 +186,4 @@ $(document).ready(function() {
     $('#aerobic-calorie-burn-chart, #aerobic-exercise-time-chart').hide();
     $('#strength-total-reps-chart').show();
   });
-
 });
-
