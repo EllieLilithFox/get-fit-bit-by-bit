@@ -8,21 +8,8 @@ import {DayActivity} from './day-activity';
 import {AerobicExercise} from './aerobic-exercise';
 import {StrengthExercise} from './strength-exercise';
 
-// import {getActive} from './meetup-api';
 import {getQuote} from './quote-api';
 import {OurCharts} from './OurCharts'
-
-// Activity API Call -----
-
-// async function displayActivity() {
-//   const jsonifiedResponse = await getActive();
-//   if (jsonifiedResponse === false) {
-//     $("#quote").text("Sorry no quotes today.");
-//   } else {
-//     $("#activity").html(`${JSON.stringify(jsonifiedResponse, null, 4)}`);
-//     console.log(jsonifiedResponse.results);
-//   }
-// }
 
 // Quote API Call -----
 
@@ -32,60 +19,64 @@ async function displayQuote() {
     $("#quote").text("Sorry no quotes today.");
   } else {
     let random = Math.floor(Math.random() * quotesResponse.length);
-    $("#quote").html(`${quotesResponse[random].text}`);
-    if (!quotesResponse[random].author) {
-      $("#author").html("Author Unknown");
-    } else {
-      $("#author").html(`${quotesResponse[random].author}`);
-    }
-    // console.log(jsonifiedResponse);
+      $("#quote").html(`${quotesResponse[random].text}`);
+      if (!quotesResponse[random].author) {
+        $("#author").html("Author Unknown");
+      } else {
+        $("#author").html(`${quotesResponse[random].author}`);
+      }
+    setInterval(() => {
+      let random = Math.floor(Math.random() * quotesResponse.length);
+      $("#quote").html(`${quotesResponse[random].text}`);
+      if (!quotesResponse[random].author) {
+        $("#author").html("Author Unknown");
+      } else {
+        $("#author").html(`${quotesResponse[random].author}`);
+      }
+    }, 8000);
   }
 }
 
-function updateAerobicFlipCard(aerobicExerciseObject, date) {
+function updateAerobicFlipCard(aerobicExerciseObject, personObject) {
   $('#flip-card-1-header').text(aerobicExerciseObject.name);
   $('#flip-card-1-intensity').text(aerobicExerciseObject.intensity);
   $('#flip-card-1-distance').text(aerobicExerciseObject.distance);
   $('#flip-card-1-time').text(aerobicExerciseObject.time);
-  $('#flip-card-1-date').text(date);
-  // $('img#flip-card-1-image').attr('src', `./../images/icon/${aerobicExerciseObject.name}.png`);
+  $('#flip-card-1-calories').text(aerobicExerciseObject.calcAerobicExerciseCalories(personObject));
   $('#flip-card-1').show();
-  console.log(aerobicExerciseObject.name);
 }
 
-function updateStrengthFlipCard(strengthExerciseObject, date) {
+function updateStrengthFlipCard(strengthExerciseObject, personObject) {
   $('#flip-card-2-header').text(strengthExerciseObject.name);
   $('#flip-card-2-reps').text(strengthExerciseObject.reps);
   $('#flip-card-2-sets').text(strengthExerciseObject.sets);
-  $('#flip-card-2-date').text(date);
-  // $('img#flip-card-2-image').attr('src', `./../images/icon/${aerobicExerciseObject.name}.png`);
+  $('#flip-card-2-calories').text(strengthExerciseObject.calcStrengthExerciseCalories(personObject));
   $('#flip-card-2').show();
 }
 
 $(document).ready(function() {
   // Test Data
-  /*
-  let testPerson = new Person("Test", "155")
-  testPerson.addDayActivity(new DayActivity("2020-07-08"));
-  testPerson.addDayActivity(new DayActivity("2020-07-07"));
-  testPerson.addDayActivity(new DayActivity("2020-07-06"));
-  testPerson.addDayActivity(new DayActivity("2020-07-05"));
-  testPerson.findDayActivityObject("2020-07-08").addAerobicActivity(new AerobicExercise("walking", "20", "11", "Slow"));
-  testPerson.findDayActivityObject("2020-07-07").addAerobicActivity(new AerobicExercise("walking", "25", "9", "Slow"));
-  testPerson.findDayActivityObject("2020-07-06").addAerobicActivity(new AerobicExercise("walking", "34", "10", "Slow"));
-  testPerson.findDayActivityObject("2020-07-05").addAerobicActivity(new AerobicExercise("walking", "15", "9", "Slow"));
-  testPerson.findDayActivityObject("2020-07-08").addStrengthActivity(new StrengthExercise("push-ups", "2", "12"))
-  testPerson.findDayActivityObject("2020-07-07").addStrengthActivity(new StrengthExercise("pull-ups", "2", "12"))
-  testPerson.findDayActivityObject("2020-07-06").addStrengthActivity(new StrengthExercise("pull-ups", "2", "8"))
-  testPerson.findDayActivityObject("2020-07-05").addStrengthActivity(new StrengthExercise("push-ups", "2", "14"))
-  */
+  
+  // let testPerson = new Person("Test", "155")
+  // testPerson.addDayActivity(new DayActivity("2020-07-08"));
+  // testPerson.addDayActivity(new DayActivity("2020-07-07"));
+  // testPerson.addDayActivity(new DayActivity("2020-07-06"));
+  // testPerson.addDayActivity(new DayActivity("2020-07-05"));
+  // testPerson.findDayActivityObject("2020-07-08").addAerobicActivity(new AerobicExercise("walking", "20", "11", "Slow"));
+  // testPerson.findDayActivityObject("2020-07-07").addAerobicActivity(new AerobicExercise("walking", "25", "9", "Slow"));
+  // testPerson.findDayActivityObject("2020-07-06").addAerobicActivity(new AerobicExercise("walking", "34", "10", "Slow"));
+  // testPerson.findDayActivityObject("2020-07-05").addAerobicActivity(new AerobicExercise("walking", "15", "9", "Slow"));
+  // testPerson.findDayActivityObject("2020-07-08").addStrengthActivity(new StrengthExercise("push-ups", "2", "12"))
+  // testPerson.findDayActivityObject("2020-07-07").addStrengthActivity(new StrengthExercise("pull-ups", "2", "12"))
+  // testPerson.findDayActivityObject("2020-07-06").addStrengthActivity(new StrengthExercise("pull-ups", "2", "8"))
+  // testPerson.findDayActivityObject("2020-07-05").addStrengthActivity(new StrengthExercise("push-ups", "2", "14"))
+  
 
   let person;
   let strengthExercise;
   let aerobicExercise; 
   let newDayActivity;
 
-  // displayActivity();
   displayQuote();
 
   let chart = new OurCharts();
@@ -100,7 +91,6 @@ $(document).ready(function() {
     $("#weight").val("");
     $("#exercises").fadeIn();
     $(".modal-body").html("You are subscribed");
-    console.log(person);
   });
 
   $("#strength-exercise-form").submit(function(event) {
@@ -114,9 +104,8 @@ $(document).ready(function() {
     $("#strength-exercise-date").val("");
     $("#date").val("");
     $("#your-exercises").show();
-    //make date input required or default !?!?!??!
     strengthExercise = new StrengthExercise(strengthType, sets, reps);
-    updateStrengthFlipCard(strengthExercise, date)
+    updateStrengthFlipCard(strengthExercise, person);
     if(!person.findDayActivityObject(date)) {
       newDayActivity = new DayActivity(date);
       person.addDayActivity(newDayActivity);
@@ -124,8 +113,6 @@ $(document).ready(function() {
     } else {
       person.findDayActivityObject(date).addStrengthActivity(strengthExercise);
     }
-    console.log(newDayActivity);
-    console.log(person);
   });
 
   $("#aerobic-exercise-form").submit(function(event) {
@@ -142,9 +129,7 @@ $(document).ready(function() {
     $("#aeroicType").val("")
     $("#your-exercises").show();
     aerobicExercise = new AerobicExercise(aerobicType, time, distance, intensity);
-
-    updateAerobicFlipCard(aerobicExercise, date);
-    
+    updateAerobicFlipCard(aerobicExercise, person);    
     if(!person.findDayActivityObject(date)) {
       newDayActivity = new DayActivity(date);
       person.addDayActivity(newDayActivity);
@@ -152,8 +137,6 @@ $(document).ready(function() {
     } else {
       person.findDayActivityObject(date).addAerobicActivity(aerobicExercise);
     }
-    console.log(newDayActivity);
-    console.log(person);
   });
 
   $("input[name$='exercise-type']").click(function(){

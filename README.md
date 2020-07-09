@@ -1,5 +1,7 @@
 # Get Fit Bit By Bit
 
+![People Exercising!](./src/images/header-img.png)
+
 #### Latest version date 7/9/2020
 
 #### By Ian Scott, Evgeniya Chernaya, Spencer Moody and Deryck Jackson
@@ -8,23 +10,16 @@
 
 Get Fit Bit By Bit is a sample exercise tracking website which takes in user submitted exercise data to provide a small selection of charts for visual data consumption. The website also includes a variety of motivational quotes, and an exercise suggester for users to assist in their fitness growth. Unlike many other fitness trackers, this website also allows the user to individual sets of strength training reps (e.g., push-ups, sit-ups etc).
 
+![Personalized Graph!](./src/images/graph-img.png)
+
 ## Specifications
 
-1. **Behavior:** Program will create an exercise class
-    * **Input Example:**
-    * **Output Example:** Exercise { name: walking, time: 12:00, distance: .6, date: "2020 07 07" } 
-
-2. **Behavior:** Program will create local array variable for storing new class instances
-    * **Input Example:**
-    * **Output Example:** exercises = []
-
-3. **Behavior:** Program will calculate calorie burn based on exercise type
-    * **Input Example:** walking
-    * **Output Example:** 120 calories
-
-4. **Behavior:** Program will create a Person class with name, gender, age, height and weight
-    * **Input Example:**
-    * **Output Example:** Person { name: Sue, gender: female, weight: 140 }
+| Spec | Input | Output |
+| :-------------      | :------------- | :------------- |
+| 1. Program will create an exercise class | -- | Exercise { name: walking, time: 12:00, distance: .6, date: "2020 07 07" }  |
+| 2. Program will create local array variable for storing new class instances | -- | exercises = [] |
+| 3. Program will calculate calorie burn based on exercise type | walking | 120 calories |
+| 4. Program will create a Person class with name, gender, age, height and weight | -- | Person { name: Sue, gender: female, weight: 140 }|
 
 ## Setup and Installation
 
